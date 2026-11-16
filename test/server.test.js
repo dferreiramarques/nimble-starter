@@ -152,6 +152,7 @@ test('PWA: a manifest that makes the app installable, linked from both pages (no
     assert.equal(m.display, 'standalone');
     assert.equal(m.start_url, '/app');
     assert.ok(m.icons.length >= 1 && m.name);
+    assert.match(await (await fetch(s.base + '/app')).text(), /data-install/, 'icon-only install button in the app');
     for (const p of ['/', '/app']) assert.match(await (await fetch(s.base + p)).text(), /rel="manifest" href="\/manifest\.webmanifest"/);
   } finally { await s.close(); }
 });
