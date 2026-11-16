@@ -22,6 +22,7 @@ It gives you, working and tested from the first commit:
    ```
 
    `--accent` is `emerald`, `rose`, `indigo`, `amber` or `violet`; `--id` sets the short id used for cookie names (default: the name in lower case).
+   It also draws the app icons (`public/icons/*.png`) and the favicon in the accent colour; replace them with your own artwork when you have it.
 3. Create a Google OAuth client (see **Google setup**) and copy `.env.example` to `.env` with your values.
 4. Run it:
 
@@ -59,7 +60,7 @@ scripts/init.mjs     fills in the placeholders of a fresh copy
 docs/ARCHITECTURE.md the rules and why
 ```
 
-Read [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) before changing the server or the sync: it lists the rules the tests protect.
+The overview, in pictures: [the starter page](https://dferreiramarques.github.io/nimbleui-design-system/start.html). Read [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) before changing the server or the sync: it lists the rules the tests protect.
 
 ## Keeping the design system current
 
