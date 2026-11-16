@@ -28,7 +28,7 @@ let changed = 0;
     const p = path.join(dir, f);
     if (skip.has(f)) continue;
     if (statSync(p).isDirectory()) { walk(p); continue; }
-    if (!/\.(html|js|mjs|json|md|css|svg|example|yml)$/.test(f) && f !== '.env.example') continue;
+    if (!/\.(html|js|mjs|json|webmanifest|md|css|svg|example|yml)$/.test(f) && f !== '.env.example') continue;
     if (p === fileURLToPath(import.meta.url)) continue;
     const s = readFileSync(p, 'utf8');
     const t = s.replace(/\{\{([A-Z_]+)\}\}/g, (m, k) => (k in vals ? vals[k] : m));

@@ -142,3 +142,16 @@ test('themes only change colours: no non-colour property inside a [data-theme] b
   colourOnly(fs.readFileSync(path.join(__dirname, '..', 'public', 'nimble', 'tokens.css'), 'utf8'));
   colourOnly(fs.readFileSync(path.join(__dirname, '..', 'public', 'app.css'), 'utf8'));
 });
+
+test('PWA: a manifest that makes the app installable, linked from both pages (no service worker by design)', async () => {
+  const s = await listen(createApp({ env: {} }));
+  try {
+    const r = await fetch(s.base + '/manifest.webmanifest');
+    assert.equal(r.status, 200);
+    const m = await r.json();
+    assert.equal(m.display, 'standalone');
+    assert.equal(m.start_url, '/app');
+    assert.ok(m.icons.length >= 1 && m.name);
+    for (const p of ['/', '/app']) assert.match(await (await fetch(s.base + p)).text(), /rel="manifest" href="\/manifest\.webmanifest"/);
+  } finally { await s.close(); }
+});
