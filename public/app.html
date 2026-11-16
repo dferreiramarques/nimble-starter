@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="{{ACCENT}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{APP_NAME}}</title>
+  <meta name="app-id" content="{{APP_ID}}" />
+  <meta name="nimble-theme-key" content="{{APP_ID}}-theme" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script src="/nimble/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/nimble/tokens.css" />
+  <link rel="stylesheet" href="/nimble/components.css" />
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__in">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>
+        </span>
+        {{APP_NAME}}
+      </a>
+      <span class="grow"></span>
+      <span class="sync" id="sync" data-state="offline" hidden>Offline</span>
+      <button class="btn btn--text btn--icon help-btn" id="btn-help" aria-label="How it works" title="How it works">?</button>
+      <button class="btn btn--text btn--icon" id="btn-theme" data-theme-toggle data-theme-icon aria-label="Toggle light / dark theme" title="Toggle theme"></button>
+      <div class="user" id="user" hidden>
+        <button class="user__btn" id="user-btn" data-menu-toggle="#user-menu" aria-haspopup="menu" aria-expanded="false">
+          <img class="user__avatar" id="user-avatar" alt="" referrerpolicy="no-referrer" />
+          <span class="user__name" id="user-name"></span>
+        </button>
+        <div class="menu menu--end" id="user-menu" role="menu" hidden>
+          <div class="user__email" id="user-email"></div>
+          <button class="menu__item" role="menuitem" id="btn-signout">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- sign in -->
+  <section class="login" id="gate">
+    <div class="login__card">
+      <h1 id="gate-title">Sign in to {{APP_NAME}}</h1>
+      <p>Your data lives in your own Google Drive. Sign in to open it. {{APP_NAME}} has no database of its own.</p>
+      <a class="btn btn--primary btn--lg" id="gate-btn" href="/auth/login">Continue with Google</a>
+      <p class="login__err" id="gate-msg" role="status"></p>
+    </div>
+  </section>
+
+  <!-- the app (replace this demo: a list of notes) -->
+  <main class="wrap" id="main" hidden>
+    <form class="note-form" id="note-form">
+      <input class="input" id="note-text" placeholder="Write a note and press Enter" maxlength="200" autocomplete="off" />
+      <button class="btn btn--primary" type="submit">Add</button>
+    </form>
+    <div class="list" id="notes"></div>
+    <p class="muted" id="empty" hidden>Nothing here yet.</p>
+  </main>
+
+  <script src="/nimble/behaviors.js"></script>
+  <script src="/js/drive.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

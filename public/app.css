@@ -1,0 +1,28 @@
+/* App-specific styles only. Tokens and components come from nimble/ (the nimbleUI kit); never put non-colour
+   properties inside [data-theme] blocks: dark and light change only colours. */
+
+/* sign-in card */
+.login { min-height: calc(100vh - 140px); display: grid; place-items: center; padding: 24px; }
+.login__card { width: min(400px, 100%); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); box-shadow: var(--sh-md); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.login__card h1 { font-size: 1.375rem; font-weight: 700; letter-spacing: -.02em; }
+.login__card p { color: var(--muted); font-size: .9375rem; }
+.login__card .btn--lg { align-self: stretch; }
+.login__err { color: var(--danger); font-size: .875rem; min-height: 1.25em; }
+[hidden] { display: none !important; }
+
+/* top bar: help button and account pill */
+.help-btn { font-weight: 600; font-size: 15px; }
+.user { position: relative; }
+.user__btn { display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 10px 0 4px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+.user__btn:hover { background: var(--surface-2); }
+.user__avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; background: var(--surface-3); }
+.user__name { font-size: .875rem; font-weight: 500; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.user__email { padding: 8px 10px; color: var(--subtle); font-size: .8125rem; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 700px) { .user__name { display: none; } }
+
+/* demo */
+main.wrap { padding-top: 24px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 16px; }
+.note-form { display: flex; gap: 8px; }
+.note-form .input { flex: 1; min-width: 0; }
+.muted { color: var(--muted); }
+html { scrollbar-gutter: stable; }   /* keeps the layout still when a page gets a scrollbar */

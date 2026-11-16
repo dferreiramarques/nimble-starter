@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="{{ACCENT}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{TAGLINE}}" />
+  <title>{{APP_NAME}}: {{TAGLINE}}</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="nimble-theme-key" content="{{APP_ID}}-theme" />
+  <script src="/nimble/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/nimble/tokens.css" />
+  <link rel="stylesheet" href="/nimble/components.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__in">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg></span>
+        {{APP_NAME}}
+      </a>
+      <nav class="nav" aria-label="Sections"><a href="#features">Features</a><a href="#how">How it works</a><a href="#privacy">Privacy</a></nav>
+      <span class="grow"></span>
+      <button class="btn btn--text btn--icon" data-theme-toggle data-theme-icon aria-label="Toggle light / dark theme" title="Toggle theme"></button>
+      <a class="btn btn--primary" href="/app">Open the app</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap lp-hero">
+      <div class="eyebrow">Free · Google sign-in · No setup</div>
+      <h1>{{HEADLINE}} <em>{{HEADLINE_EM}}</em></h1>
+      <p>{{TAGLINE}} Everything lives in your own Google Drive.</p>
+      <div class="lp-cta">
+        <a class="btn btn--primary btn--lg" href="/app">Continue with Google</a>
+        <a class="btn btn--outline btn--lg" href="#how">See how it works</a>
+      </div>
+      <p class="lp-note">Free forever. No database of ours: your data is a file in your own Drive.</p>
+    </section>
+
+    <section class="lp-sec" id="features">
+      <div class="wrap">
+        <div class="lp-head"><div class="eyebrow">What you get</div><h2>Replace these three with your product's strengths.</h2></div>
+        <div class="grid3">
+          <article class="fcard"><h3>Fast to use</h3><p>One sentence about the first benefit.</p></article>
+          <article class="fcard"><h3>Your Drive, your data</h3><p>Saved in a private folder of your own Google Drive. We never keep a copy.</p></article>
+          <article class="fcard"><h3>Works offline</h3><p>Keep working without a connection; everything syncs when you are back.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-sec" id="how">
+      <div class="wrap">
+        <div class="lp-head"><div class="eyebrow">How it works</div><h2>Up and running in three steps.</h2></div>
+        <div class="steps">
+          <article class="step"><h3>Sign in with Google</h3><p>One click, no new password.</p></article>
+          <article class="step"><h3>Add your first item</h3><p>Describe the first thing a user does.</p></article>
+          <article class="step"><h3>Keep going</h3><p>Everything saves to your Drive automatically.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-sec" id="privacy">
+      <div class="wrap">
+        <div class="lp-head"><div class="eyebrow">No middleman</div><h2>{{APP_NAME}} doesn't keep your data. Google does.</h2>
+          <p>There is no {{APP_NAME}} database. Your data is a file in a private folder of your Google Drive; remove access in your Google Account and it goes with it.</p></div>
+      </div>
+    </section>
+
+    <section class="lp-sec">
+      <div class="wrap lp-center">
+        <div class="lp-head lp-head--center"><h2>Sign in and get started.</h2><p>Free, no setup, nothing stored on our end.</p></div>
+        <a class="btn btn--primary btn--lg" href="/app">Continue with Google</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lp-foot">
+    <div class="wrap">
+      <span>© {{YEAR}} {{APP_NAME}}</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/app">Open the app</a></span>
+    </div>
+  </footer>
+</body>
+</html>
