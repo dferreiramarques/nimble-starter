@@ -26,3 +26,6 @@ main.wrap { padding-top: 24px; padding-bottom: 48px; display: flex; flex-directi
 .note-form .input { flex: 1; min-width: 0; }
 .muted { color: var(--muted); }
 html { scrollbar-gutter: stable; }   /* keeps the layout still when a page gets a scrollbar */
+
+.menu__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.menu__row .ico { width: 16px; height: 16px; }
