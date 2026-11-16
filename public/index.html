@@ -7,6 +7,7 @@
   <title>{{APP_NAME}}: {{TAGLINE}}</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
   <meta name="theme-color" content="#09090b" />
   <meta name="nimble-theme-key" content="{{APP_ID}}-theme" />
   <script src="/nimble/theme.js"></script>
@@ -38,6 +39,7 @@
       <div class="lp-cta">
         <a class="btn btn--primary btn--lg" href="/app">Continue with Google</a>
         <a class="btn btn--outline btn--lg" href="#how">See how it works</a>
+        <button class="btn btn--outline btn--lg" type="button" data-install hidden><span class="install-ico"></span> Install the app</button>
       </div>
       <p class="lp-note">Free forever. No database of ours: your data is a file in your own Drive.</p>
     </section>
@@ -75,6 +77,7 @@
       <div class="wrap lp-center">
         <div class="lp-head lp-head--center"><h2>Sign in and get started.</h2><p>Free, no setup, nothing stored on our end.</p></div>
         <a class="btn btn--primary btn--lg" href="/app">Continue with Google</a>
+        <button class="btn btn--outline btn--lg" type="button" data-install hidden><span class="install-ico"></span> Install the app</button>
       </div>
     </section>
   </main>
@@ -85,5 +88,6 @@
       <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/app">Open the app</a></span>
     </div>
   </footer>
+  <script src="/nimble/behaviors.js"></script>
 </body>
 </html>
