@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeIcons, faviconSvg } from './icons.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -21,7 +22,7 @@ const vals = {
   YEAR: String(new Date().getFullYear()), DATE: new Date().toISOString().slice(0, 10)
 };
 
-const skip = new Set(['node_modules', '.git', 'nimble']);
+const skip = new Set(['node_modules', '.git', 'nimble']);   // (icons are written below, after the placeholders)
 let changed = 0;
 (function walk(dir) {
   for (const f of readdirSync(dir)) {
@@ -35,6 +36,10 @@ let changed = 0;
     if (t !== s) { writeFileSync(p, t); changed++; }
   }
 })(root);
+// icons and favicon in the accent colour
+const n = writeIcons(path.join(root, 'public', 'icons'), accent);
+writeFileSync(path.join(root, 'public', 'favicon.svg'), faviconSvg(accent));
+changed += n + 1;
 console.log(`Filled in ${changed} file(s) for "${name}" (id "${id}", accent ${accent}).`);
 console.log('Next: copy .env.example to .env, set APP_ID=' + id + ' and the Google values, then npm start.');
 console.log('Still to write by hand: the {{...}} sections of public/privacy.html and public/terms.html.');
